@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Heerthana</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Star Field Background -->
+    <div class="starfield"></div>
+    
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <span class="logo-icon">🚀</span>
+                <span>Space Dev</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section with 3D Space -->
+    <section id="home" class="hero">
+        <!-- 3D Planet/World -->
+        <canvas id="spaceCanvas"></canvas>
+        
+        <div class="hero-content">
+            <!-- Astronaut Section -->
+            <div class="astronaut-section">
+                <svg class="astronaut" viewBox="0 0 200 300" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Astronaut Body -->
+                    <g id="astronaut-group">
+                        <!-- Legs -->
+                        <rect x="75" y="180" width="15" height="60" fill="#fff" rx="7"/>
+                        <rect x="110" y="180" width="15" height="60" fill="#fff" rx="7"/>
+                        <circle cx="82.5" cy="240" r="8" fill="#ffcc00"/>
+                        <circle cx="117.5" cy="240" r="8" fill="#ffcc00"/>
+                        
+                        <!-- Body Suit -->
+                        <ellipse cx="100" cy="120" rx="35" ry="50" fill="#00ccff" stroke="#0099ff" stroke-width="2"/>
+                        
+                        <!-- Arms -->
+                        <rect x="30" y="100" width="15" height="60" fill="#fff" rx="7" transform="rotate(-30 37 100)"/>
+                        <rect x="155" y="100" width="15" height="60" fill="#fff" rx="7" transform="rotate(30 162 100)"/>
+                        
+                        <!-- Hands holding Laptop -->
+                        <circle cx="25" cy="140" r="8" fill="#ffcc99"/>
+                        <circle cx="175" cy="140" r="8" fill="#ffcc99"/>
+                        
+                        <!-- Laptop in hands -->
+                        <g id="laptop">
+                            <rect x="60" y="110" width="80" height="50" rx="3" fill="#1a1a2e" stroke="#00ff88" stroke-width="2"/>
+                            <rect x="62" y="112" width="76" height="35" fill="#0a0e1a" stroke="#00ffff" stroke-width="1"/>
+                            <!-- Screen glow -->
+                            <rect x="62" y="112" width="76" height="35" fill="url(#screenGradient)" opacity="0.6"/>
+                            <!-- Keyboard details -->
+                            <g opacity="0.5">
+                                <line x1="70" y1="150" x2="130" y2="150" stroke="#00ff88" stroke-width="1"/>
+                                <line x1="70" y1="153" x2="130" y2="153" stroke="#00ff88" stroke-width="1"/>
+                            </g>
+                        </g>
+                        
+                        <!-- Helmet -->
+                        <circle cx="100" cy="50" r="40" fill="none" stroke="#00ccff" stroke-width="3"/>
+                        <circle cx="100" cy="50" r="35" fill="rgba(0, 200, 255, 0.1)"/>
+                        
+                        <!-- Helmet Visor Glow -->
+                        <ellipse cx="100" cy="45" rx="25" ry="20" fill="rgba(0, 255, 136, 0.3)" filter="url(#glow)"/>
+                        
+                        <!-- Head inside helmet -->
+                        <circle cx="100" cy="55" r="18" fill="#ffcc99"/>
+                        
+                        <!-- Eyes -->
+                        <circle cx="92" cy="50" r="2" fill="#000"/>
+                        <circle cx="108" cy="50" r="2" fill="#000"/>
+                        
+                        <!-- Antenna -->
+                        <line x1="100" y1="10" x2="100" y2="-10" stroke="#00ff88" stroke-width="2" stroke-linecap="round"/>
+                        <circle cx="100" cy="-15" r="3" fill="#ff00ff"/>
+                    </g>
+                </svg>
+                <div class="floating-particles">
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                </div>
+            </div>
+
+            <!-- Hero Text -->
+            <div class="hero-text">
+                <h1 class="hero-title">
+                    <span class="text-gradient">Welcome to My Digital Universe</span>
+                </h1>
+                <p class="hero-subtitle">🌌 Full Stack Developer Exploring the Cosmos 🚀</p>
+                <p class="hero-description">
+                    Crafting beautiful web experiences from the far corners of the digital galaxy
+                </p>
+                <div class="typing-text">
+                    > <span class="typing"></span>
+                </div>
+                <a href="#projects" class="cta-button">
+                    <span>Launch Mission</span>
+                    <i class="fas fa-rocket"></i>
+                </a>
+            </div>
+        </div>
+
+        <!-- Orbiting Objects -->
+        <div class="orbit-container">
+            <div class="orbit orbit-1">
+                <div class="orbit-item">💻</div>
+            </div>
+            <div class="orbit orbit-2">
+                <div class="orbit-item">⚡</div>
+            </div>
+            <div class="orbit orbit-3">
+                <div class="orbit-item">🔧</div>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="scroll-indicator">
+            <div class="scroll-bar"></div>
+        </div>
+
+        <!-- SVG Filters -->
+        <svg width="0" height="0">
+            <defs>
+                <filter id="glow">
+                    <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                    <feMerge>
+                        <feMergeNode in="coloredBlur"/>
+                        <feMergeNode in="SourceGraphic"/>
+                    </feMerge>
+                </filter>
+                <linearGradient id="screenGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" style="stop-color:#00ff88;stop-opacity:0.3" />
+                    <stop offset="100%" style="stop-color:#0099ff;stop-opacity:0.1" />
+                </linearGradient>
+            </defs>
+        </svg>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header">
+                <h2>About</h2>
+                <div class="header-line"></div>
+            </div>
+
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Hi! I am Heerthana.I am an undergraduate student pursuing a BIT (Hons) in Networking and Mobile Computing.
+                     I am passionate about building reliable network systems and developing mobile applications that solve real-world problems.
+                     I enjoy learning new technologies, working on practical projects, and continuously improving my technical and problem-solving skills.</p>
+
+                    <div class="about-stats">
+                        <div class="stat">
+                            <div class="stat-icon">🎯</div>
+                            <h3>10+</h3>
+                            <p>Missions Complete</p>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-icon">⭐</div>
+                            <h3>50+</h3>
+                            <p>Light Years Traveled</p>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-icon">🛸</div>
+                            <h3>100%</h3>
+                            <p>Dedication</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="about-highlights">
+                    <div class="highlight-card">
+                        <div class="highlight-icon">💡</div>
+                        <h4>Innovation</h4>
+                        <p>Creating breakthrough solutions</p>
+                    </div>
+                    <div class="highlight-card">
+                        <div class="highlight-icon">⚙️</div>
+                        <h4>Engineering</h4>
+                        <p>Building robust systems</p>
+                    </div>
+                    <div class="highlight-card">
+                        <div class="highlight-icon">🌟</div>
+                        <h4>Excellence</h4>
+                        <p>Delivering quality code</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section - Cosmic Weapons -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <div class="section-header">
+                <h2>🛠️ Skills</h2>
+                <div class="header-line"></div>
+            </div>
+
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <div class="skill-icon">💻</div>
+                    <h3>Frontend Mastery</h3>
+                    <div class="skill-list">
+                        <span class="skill-tag">HTML5</span>
+                        <span class="skill-tag">CSS3</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">React</span>
+                        <span class="skill-tag">Vue.js</span>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-icon">⚡</div>
+                    <h3>Backend Power</h3>
+                    <div class="skill-list">
+                        <span class="skill-tag">Node.js</span>
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">Java</span>
+                        <span class="skill-tag">Express.js</span>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-icon">🗄️</div>
+                    <h3>Database Control</h3>
+                    <div class="skill-list">
+                        <span class="skill-tag">MongoDB</span>
+                        <span class="skill-tag">MySQL</span>
+                        <span class="skill-tag">PostgreSQL</span>
+                    </div>
+                </div>
+            
+
+
+                <div class="skill-card">
+                    <div class="skill-icon">🔧</div>
+                    <h3>DevOps Arsenal</h3>
+                    <div class="skill-list">
+                        <span class="skill-tag">Git</span>
+                        <span class="skill-tag">Cisco Packet Tracer</span>
+                        <span class="skill-tag">Docker</span>
+                        <span class="skill-tag">AWS</span>
+                        <span class="skill-tag">Linux</span>
+                        <span class="skill-tag">CI/CD</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section - Space Missions -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <div class="section-header">
+                <h2>💻 Projects</h2>
+                <div class="header-line"></div>
+            </div>
+
+            <div class="projects-grid">
+                <div class="project-card mission-card">
+                    <div class="mission-number">MISSION 01</div>
+                    <div class="project-image" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                        <div class="project-icon">💸</div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Spendify</h3>
+                        <p>Automated Expense Management System.</p>
+                        <div class="project-tags">
+                            <span class="tag-cosmic">Git workflow including branching, merging, and pull requests.</span>
+                           
+                        </div>
+                        <a href="https://github.com/Rashadha24/spendify-devops-project" class="project-link">Launch Mission <i class="fas fa-rocket"></i></a>
+                    </div>
+                </div>
+
+                <div class="project-card mission-card">
+                    <div class="mission-number">MISSION 02</div>
+                    <div class="project-image" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                        <div class="project-icon">🚗</div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Saferider-LK</h3>
+                        <p>Mobile App Prototype.</p>
+                        <div class="project-tags">
+                            <span class="tag-cosmic">Created interactive UI/UX flows, including navigation, login, and dashboard screens.</span>
+                        </div>
+                        <a href="https://www.figma.com/proto/ZsIS2J4q74nhOFGwIAj3f3/Saferider-LK-01" class="project-link">Launch Mission <i class="fas fa-rocket"></i></a>
+                    </div>
+                </div>
+
+                <div class="project-card mission-card">
+                    <div class="mission-number">MISSION 03</div>
+                    <div class="project-image" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+                        <div class="project-icon">🌴</div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Explore Sri Lanka Frontend Design Project</h3>
+                        <p>Focused on modern UI/UX design, responsive layouts, and accessibility to improve user experience.</p>
+                        <div class="project-tags">
+                            <span class="tag-cosmic">JavaScript</span>
+                            <span class="tag-cosmic">HTML</span>
+                            <span class="tag-cosmic">CSS</span>
+                        </div>
+                        <a href="https://github.com/Heerthana23/my-project" class="project-link">Launch Mission <i class="fas fa-rocket"></i></a>
+                    </div>
+                </div>
+
+                <div class="project-card mission-card">
+                    <div class="mission-number">MISSION 04</div>
+                    <div class="project-image" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);">
+                        <div class="project-icon">🎬</div>
+                    </div>
+                    <div class="project-content">
+                        <h3>PVR App Prototype</h3>
+                        <p>Developed a functional UI/UX prototype in Figma for a ticket booking system.</p>
+                        <div class="project-tags">
+                            <span class="tag-cosmic">Implemented interactive screens and user journey mapping for app flow.</span>
+                        </div>
+                        <a href="https://www.figma.com/proto/EVUVQVmbu93oXNdcIiOxt8/PVR?node-id=17-187&p=f" class="project-link">Launch Mission <i class="fas fa-rocket"></i></a>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section - Transmission -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2>📡 Transmission Frequency</h2>
+                <div class="header-line"></div>
+                <p class="contact-subtitle">Establish communication across the galaxy</p>
+            </div>
+
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="info-card">
+                        <div class="info-icon">📧</div>
+                        <h4>Secure Channel</h4>
+                        <a href="kidhurshana@gmail.com">your.email@example.com</a>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-icon">📞</div>
+                        <h4>Signal Line</h4>
+                        <a href="tel:+91-your-number">+94-752918086</a>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-icon">🗺️</div>
+                        <h4>Space Station</h4>
+                        <p>Malabe</p>
+                    </div>
+                </div>
+
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/heerthana-udayakumar?utm_source=share_via&utm_content=profile&utm_medium=member_android" class="social-btn" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://github.com/Heerthana23" class="social-btn" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.instagram.com/the._.mini._.on_23?igsh=MTN3M3pvcXJ0MnFpOA==" class="social-btn" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>🌌 End transmission. Safe travels through the digital cosmos.</p>
+            <p>© 2026 Space Dev Portfolio | Designed by an Interstellar Developer</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="canvas.js"></script>
+</body>
+</html>
