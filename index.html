@@ -3,402 +3,328 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio | Heerthana</title>
+    <title>Heerthana | Portfolio</title>
+    <meta name="description" content="Portfolio of Heerthana — BIT (Hons) Networking and Mobile Computing student and full stack developer.">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Star Field Background -->
-    <div class="starfield"></div>
-    
+    <canvas id="scene" aria-hidden="true"></canvas>
+    <div class="aurora" aria-hidden="true"></div>
+    <div class="grain" aria-hidden="true"></div>
+    <div class="scroll-progress"></div>
+    <div class="cursor-dot"></div>
+    <div class="cursor-ring"></div>
+
     <!-- Navigation -->
-    <nav class="navbar">
-        <div class="container">
-            <div class="logo">
-                <span class="logo-icon">🚀</span>
-                <span>Space Dev</span>
-            </div>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
+    <header class="navbar">
+        <div class="container nav-inner">
+            <a href="#home" class="brand"><span class="brand-dot"></span>Heerthana</a>
+            <nav class="nav-links" aria-label="Main">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#skills">Skills</a>
+                <a href="#projects">Projects</a>
+                <a href="#journey">Journey</a>
+                <a href="#contact">Contact</a>
+            </nav>
+            <button class="hamburger" aria-label="Menu"><span></span><span></span></button>
         </div>
-    </nav>
+    </header>
 
-    <!-- Hero Section with 3D Space -->
-    <section id="home" class="hero">
-        <!-- 3D Planet/World -->
-        <canvas id="spaceCanvas"></canvas>
-        
-        <div class="hero-content">
-            <!-- Astronaut Section -->
-            <div class="astronaut-section">
-                <svg class="astronaut" viewBox="0 0 200 300" xmlns="http://www.w3.org/2000/svg">
-                    <!-- Astronaut Body -->
-                    <g id="astronaut-group">
-                        <!-- Legs -->
-                        <rect x="75" y="180" width="15" height="60" fill="#fff" rx="7"/>
-                        <rect x="110" y="180" width="15" height="60" fill="#fff" rx="7"/>
-                        <circle cx="82.5" cy="240" r="8" fill="#ffcc00"/>
-                        <circle cx="117.5" cy="240" r="8" fill="#ffcc00"/>
-                        
-                        <!-- Body Suit -->
-                        <ellipse cx="100" cy="120" rx="35" ry="50" fill="#00ccff" stroke="#0099ff" stroke-width="2"/>
-                        
-                        <!-- Arms -->
-                        <rect x="30" y="100" width="15" height="60" fill="#fff" rx="7" transform="rotate(-30 37 100)"/>
-                        <rect x="155" y="100" width="15" height="60" fill="#fff" rx="7" transform="rotate(30 162 100)"/>
-                        
-                        <!-- Hands holding Laptop -->
-                        <circle cx="25" cy="140" r="8" fill="#ffcc99"/>
-                        <circle cx="175" cy="140" r="8" fill="#ffcc99"/>
-                        
-                        <!-- Laptop in hands -->
-                        <g id="laptop">
-                            <rect x="60" y="110" width="80" height="50" rx="3" fill="#1a1a2e" stroke="#00ff88" stroke-width="2"/>
-                            <rect x="62" y="112" width="76" height="35" fill="#0a0e1a" stroke="#00ffff" stroke-width="1"/>
-                            <!-- Screen glow -->
-                            <rect x="62" y="112" width="76" height="35" fill="url(#screenGradient)" opacity="0.6"/>
-                            <!-- Keyboard details -->
-                            <g opacity="0.5">
-                                <line x1="70" y1="150" x2="130" y2="150" stroke="#00ff88" stroke-width="1"/>
-                                <line x1="70" y1="153" x2="130" y2="153" stroke="#00ff88" stroke-width="1"/>
-                            </g>
-                        </g>
-                        
-                        <!-- Helmet -->
-                        <circle cx="100" cy="50" r="40" fill="none" stroke="#00ccff" stroke-width="3"/>
-                        <circle cx="100" cy="50" r="35" fill="rgba(0, 200, 255, 0.1)"/>
-                        
-                        <!-- Helmet Visor Glow -->
-                        <ellipse cx="100" cy="45" rx="25" ry="20" fill="rgba(0, 255, 136, 0.3)" filter="url(#glow)"/>
-                        
-                        <!-- Head inside helmet -->
-                        <circle cx="100" cy="55" r="18" fill="#ffcc99"/>
-                        
-                        <!-- Eyes -->
-                        <circle cx="92" cy="50" r="2" fill="#000"/>
-                        <circle cx="108" cy="50" r="2" fill="#000"/>
-                        
-                        <!-- Antenna -->
-                        <line x1="100" y1="10" x2="100" y2="-10" stroke="#00ff88" stroke-width="2" stroke-linecap="round"/>
-                        <circle cx="100" cy="-15" r="3" fill="#ff00ff"/>
-                    </g>
-                </svg>
-                <div class="floating-particles">
-                    <div class="particle"></div>
-                    <div class="particle"></div>
-                    <div class="particle"></div>
-                    <div class="particle"></div>
-                    <div class="particle"></div>
-                </div>
-            </div>
-
-            <!-- Hero Text -->
-            <div class="hero-text">
+    <main>
+        <!-- Hero -->
+        <section id="home" class="hero">
+            <div class="container hero-inner">
+                <p class="eyebrow">Portfolio &mdash; 2026</p>
                 <h1 class="hero-title">
-                    <span class="text-gradient">Welcome to My Digital Universe</span>
+                    <span class="line"><span style="--i:0">Crafting calm,</span></span>
+                    <span class="line"><span style="--i:1"><em>considered</em> digital</span></span>
+                    <span class="line"><span style="--i:2">experiences.</span></span>
                 </h1>
-                <p class="hero-subtitle">🌌 Full Stack Developer Exploring the Cosmos 🚀</p>
-                <p class="hero-description">
-                    Crafting beautiful web experiences from the far corners of the digital galaxy
-                </p>
-                <div class="typing-text">
-                    > <span class="typing"></span>
+                <p class="hero-sub">Fourth-year BIT (Hons) undergraduate &middot; Networking &amp; Mobile Computing &middot; Horizon Campus</p>
+                <p class="typing-line"><span class="prompt">&gt;</span> <span class="typing"></span><span class="caret"></span></p>
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn btn-primary magnetic">View projects <i class="fas fa-arrow-right"></i></a>
+                    <a href="#contact" class="btn btn-ghost magnetic">Get in touch</a>
+
+            </div>
+            <div class="scroll-cue" aria-hidden="true"><span></span>Scroll</div>
+        </section>
+
+        <!-- About -->
+        <section id="about" class="section">
+            <div class="container">
+                <div class="section-header reveal">
+                    <span class="section-index">01</span>
+                    <h2>About</h2>
                 </div>
-                <a href="#projects" class="cta-button">
-                    <span>Launch Mission</span>
-                    <i class="fas fa-rocket"></i>
-                </a>
-            </div>
-        </div>
 
-        <!-- Orbiting Objects -->
-        <div class="orbit-container">
-            <div class="orbit orbit-1">
-                <div class="orbit-item">💻</div>
-            </div>
-            <div class="orbit orbit-2">
-                <div class="orbit-item">⚡</div>
-            </div>
-            <div class="orbit orbit-3">
-                <div class="orbit-item">🔧</div>
-            </div>
-        </div>
+                <div class="about-grid">
+                    <div class="about-text">
+                        <p class="reveal lead">Hi! I am Heerthana, a fourth-year BIT (Hons) undergraduate specializing in Networking and Mobile Computing at Horizon Campus.</p>
+                        <p class="reveal">I am passionate about building reliable network systems and developing mobile applications that solve real-world problems. I have project experience in frontend development, UI/UX design, API integration, database concepts, Docker, Git, and IoT-based systems, and I enjoy continuously improving my technical and problem-solving skills.</p>
+                        <p class="reveal">I am seeking a <strong>General IT Internship</strong> where I can apply my technical knowledge, support IT operations, contribute to software projects, and gain practical industry experience.</p>
 
-        <!-- Scroll Indicator -->
-        <div class="scroll-indicator">
-            <div class="scroll-bar"></div>
-        </div>
-
-        <!-- SVG Filters -->
-        <svg width="0" height="0">
-            <defs>
-                <filter id="glow">
-                    <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
-                    <feMerge>
-                        <feMergeNode in="coloredBlur"/>
-                        <feMergeNode in="SourceGraphic"/>
-                    </feMerge>
-                </filter>
-                <linearGradient id="screenGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-                    <stop offset="0%" style="stop-color:#00ff88;stop-opacity:0.3" />
-                    <stop offset="100%" style="stop-color:#0099ff;stop-opacity:0.1" />
-                </linearGradient>
-            </defs>
-        </svg>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="about">
-        <div class="container">
-            <div class="section-header">
-                <h2>About</h2>
-                <div class="header-line"></div>
-            </div>
-
-            <div class="about-content">
-                <div class="about-text">
-                    <p>Hi! I am Heerthana.I am an undergraduate student pursuing a BIT (Hons) in Networking and Mobile Computing.
-                     I am passionate about building reliable network systems and developing mobile applications that solve real-world problems.
-                     I enjoy learning new technologies, working on practical projects, and continuously improving my technical and problem-solving skills.</p>
-
-                    <div class="about-stats">
-                        <div class="stat">
-                            <div class="stat-icon">🎯</div>
-                            <h3>10+</h3>
-                            <p>Missions Complete</p>
+                        <div class="stats">
+                            <div class="stat reveal">
+                                <h3 data-count="6">6</h3>
+                                <p>Projects</p>
+                            </div>
+                            <div class="stat reveal">
+                                <h3 data-count="4">4</h3>
+                                <p>Year of BIT (Hons)</p>
+                            </div>
+                            <div class="stat reveal">
+                                <h3 data-count="3">3</h3>
+                                <p>Campus activities</p>
+                            </div>
                         </div>
-                        <div class="stat">
-                            <div class="stat-icon">⭐</div>
-                            <h3>50+</h3>
-                            <p>Light Years Traveled</p>
+                    </div>
+
+                    <div class="highlights">
+                        <div class="card highlight reveal" data-tilt>
+                            <span class="card-num">i</span>
+                            <h4>Innovation</h4>
+                            <p>Creating breakthrough solutions</p>
                         </div>
-                        <div class="stat">
-                            <div class="stat-icon">🛸</div>
-                            <h3>100%</h3>
-                            <p>Dedication</p>
+                        <div class="card highlight reveal" data-tilt>
+                            <span class="card-num">ii</span>
+                            <h4>Engineering</h4>
+                            <p>Building robust systems</p>
+                        </div>
+                        <div class="card highlight reveal" data-tilt>
+                            <span class="card-num">iii</span>
+                            <h4>Excellence</h4>
+                            <p>Delivering quality code</p>
                         </div>
                     </div>
                 </div>
+            </div>
+        </section>
 
-                <div class="about-highlights">
-                    <div class="highlight-card">
-                        <div class="highlight-icon">💡</div>
-                        <h4>Innovation</h4>
-                        <p>Creating breakthrough solutions</p>
-                    </div>
-                    <div class="highlight-card">
-                        <div class="highlight-icon">⚙️</div>
-                        <h4>Engineering</h4>
-                        <p>Building robust systems</p>
-                    </div>
-                    <div class="highlight-card">
-                        <div class="highlight-icon">🌟</div>
-                        <h4>Excellence</h4>
-                        <p>Delivering quality code</p>
-                    </div>
-                </div>
+        <!-- Marquee -->
+        <div class="marquee" aria-hidden="true">
+            <div class="marquee-track">
+                <span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>React</span><span>Vue.js</span>
+                <span>Node.js</span><span>Python</span><span>Java</span><span>Express.js</span>
+                <span>MongoDB</span><span>MySQL</span><span>PostgreSQL</span>
+                <span>Git</span><span>GitHub</span><span>Figma</span><span>SQL</span><span>Arduino</span><span>Cisco Packet Tracer</span><span>Docker</span><span>AWS</span><span>Linux</span><span>CI/CD</span>
             </div>
         </div>
-    </section>
 
-    <!-- Skills Section - Cosmic Weapons -->
-    <section id="skills" class="skills">
-        <div class="container">
-            <div class="section-header">
-                <h2>🛠️ Skills</h2>
-                <div class="header-line"></div>
-            </div>
-
-            <div class="skills-grid">
-                <div class="skill-card">
-                    <div class="skill-icon">💻</div>
-                    <h3>Frontend Mastery</h3>
-                    <div class="skill-list">
-                        <span class="skill-tag">HTML5</span>
-                        <span class="skill-tag">CSS3</span>
-                        <span class="skill-tag">JavaScript</span>
-                        <span class="skill-tag">React</span>
-                        <span class="skill-tag">Vue.js</span>
-                    </div>
+        <!-- Skills -->
+        <section id="skills" class="section">
+            <div class="container">
+                <div class="section-header reveal">
+                    <span class="section-index">02</span>
+                    <h2>Skills</h2>
                 </div>
 
-                <div class="skill-card">
-                    <div class="skill-icon">⚡</div>
-                    <h3>Backend Power</h3>
-                    <div class="skill-list">
-                        <span class="skill-tag">Node.js</span>
-                        <span class="skill-tag">Python</span>
-                        <span class="skill-tag">Java</span>
-                        <span class="skill-tag">Express.js</span>
-                    </div>
-                </div>
-
-                <div class="skill-card">
-                    <div class="skill-icon">🗄️</div>
-                    <h3>Database Control</h3>
-                    <div class="skill-list">
-                        <span class="skill-tag">MongoDB</span>
-                        <span class="skill-tag">MySQL</span>
-                        <span class="skill-tag">PostgreSQL</span>
-                    </div>
-                </div>
-            
-
-
-                <div class="skill-card">
-                    <div class="skill-icon">🔧</div>
-                    <h3>DevOps Arsenal</h3>
-                    <div class="skill-list">
-                        <span class="skill-tag">Git</span>
-                        <span class="skill-tag">Cisco Packet Tracer</span>
-                        <span class="skill-tag">Docker</span>
-                        <span class="skill-tag">AWS</span>
-                        <span class="skill-tag">Linux</span>
-                        <span class="skill-tag">CI/CD</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects Section - Space Missions -->
-    <section id="projects" class="projects">
-        <div class="container">
-            <div class="section-header">
-                <h2>💻 Projects</h2>
-                <div class="header-line"></div>
-            </div>
-
-            <div class="projects-grid">
-                <div class="project-card mission-card">
-                    <div class="mission-number">MISSION 01</div>
-                    <div class="project-image" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
-                        <div class="project-icon">💸</div>
-                    </div>
-                    <div class="project-content">
-                        <h3>Spendify</h3>
-                        <p>Automated Expense Management System.</p>
-                        <div class="project-tags">
-                            <span class="tag-cosmic">Git workflow including branching, merging, and pull requests.</span>
-                           
+                <div class="skills-grid">
+                    <div class="card skill reveal" data-tilt>
+                        <span class="card-num">01</span>
+                        <h3>Programming</h3>
+                        <div class="chips">
+                            <span>Python</span><span>JavaScript</span><span>Java</span><span>SQL</span><span>HTML5</span><span>CSS3</span>
                         </div>
-                        <a href="https://spendify-devops-project.vercel.app/" class="project-link">Launch Mission <i class="fas fa-rocket"></i></a>
                     </div>
-                </div>
-
-                <div class="project-card mission-card">
-                    <div class="mission-number">MISSION 02</div>
-                    <div class="project-image" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
-                        <div class="project-icon">🚗</div>
-                    </div>
-                    <div class="project-content">
-                        <h3>Saferider-LK</h3>
-                        <p>Mobile App Prototype.</p>
-                        <div class="project-tags">
-                            <span class="tag-cosmic">Created interactive UI/UX flows, including navigation, login, and dashboard screens.</span>
+                    <div class="card skill reveal" data-tilt>
+                        <span class="card-num">02</span>
+                        <h3>Web Development</h3>
+                        <div class="chips">
+                            <span>Responsive Web Design</span><span>Frontend Development</span><span>React.js</span><span>Vue.js</span><span>API Integration</span><span>Node.js</span><span>Express.js</span>
                         </div>
-                        <a href="https://www.figma.com/proto/ZsIS2J4q74nhOFGwIAj3f3/Saferider-LK-01" class="project-link">Launch Mission <i class="fas fa-rocket"></i></a>
                     </div>
-                </div>
-
-                <div class="project-card mission-card">
-                    <div class="mission-number">MISSION 03</div>
-                    <div class="project-image" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
-                        <div class="project-icon">🌴</div>
-                    </div>
-                    <div class="project-content">
-                        <h3>Explore Sri Lanka Frontend Design Project</h3>
-                        <p>Focused on modern UI/UX design, responsive layouts, and accessibility to improve user experience.</p>
-                        <div class="project-tags">
-                            <span class="tag-cosmic">JavaScript</span>
-                            <span class="tag-cosmic">HTML</span>
-                            <span class="tag-cosmic">CSS</span>
+                    <div class="card skill reveal" data-tilt>
+                        <span class="card-num">03</span>
+                        <h3>Databases</h3>
+                        <div class="chips">
+                            <span>MySQL</span><span>Database Fundamentals</span><span>MongoDB</span><span>PostgreSQL</span>
                         </div>
-                        <a href="https://my-project-psi-drab-34.vercel.app/" class="project-link">Launch Mission <i class="fas fa-rocket"></i></a>
                     </div>
-                </div>
-
-                <div class="project-card mission-card">
-                    <div class="mission-number">MISSION 04</div>
-                    <div class="project-image" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);">
-                        <div class="project-icon">🎬</div>
-                    </div>
-                    <div class="project-content">
-                        <h3>PVR App Prototype</h3>
-                        <p>Developed a functional UI/UX prototype in Figma for a ticket booking system.</p>
-                        <div class="project-tags">
-                            <span class="tag-cosmic">Implemented interactive screens and user journey mapping for app flow.</span>
+                    <div class="card skill reveal" data-tilt>
+                        <span class="card-num">04</span>
+                        <h3>Tools &amp; DevOps</h3>
+                        <div class="chips">
+                            <span>Git</span><span>GitHub</span><span>Docker</span><span>Figma</span><span>AWS</span><span>Linux</span><span>CI/CD</span>
                         </div>
-                        <a href="https://www.figma.com/proto/EVUVQVmbu93oXNdcIiOxt8/PVR?node-id=17-187&p=f" class="project-link">Launch Mission <i class="fas fa-rocket"></i></a>
                     </div>
-                    
+                    <div class="card skill reveal" data-tilt>
+                        <span class="card-num">05</span>
+                        <h3>Networking &amp; IoT</h3>
+                        <div class="chips">
+                            <span>Networking Fundamentals</span><span>Cisco Packet Tracer</span><span>Arduino</span><span>Bluetooth Communication</span><span>Sensors</span>
+                        </div>
+                    </div>
+                    <div class="card skill reveal" data-tilt>
+                        <span class="card-num">06</span>
+                        <h3>Professional Skills</h3>
+                        <div class="chips">
+                            <span>Teamwork</span><span>Problem-Solving</span><span>Communication</span><span>Adaptability</span><span>Quick Learning</span>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Contact Section - Transmission -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <div class="section-header">
-                <h2>📡 Transmission Frequency</h2>
-                <div class="header-line"></div>
-                <p class="contact-subtitle">Establish communication across the galaxy</p>
-            </div>
-
-            <div class="contact-content">
-                <div class="contact-info">
-                    <div class="info-card">
-                        <div class="info-icon">📧</div>
-                        <h4>Secure Channel</h4>
-                        <a href="kidhurshana@gmail.com">kidhurshana@gmail.com</a>
-                    </div>
-                    <div class="info-card">
-                        <div class="info-icon">📞</div>
-                        <h4>Signal Line</h4>
-                        <a href="tel:+91-your-number">+94-752918086</a>
-                    </div>
-                    <div class="info-card">
-                        <div class="info-icon">🗺️</div>
-                        <h4>Space Station</h4>
-                        <p>Malabe</p>
-                    </div>
+        <!-- Projects -->
+        <section id="projects" class="section">
+            <div class="container">
+                <div class="section-header reveal">
+                    <span class="section-index">03</span>
+                    <h2>Projects</h2>
                 </div>
 
-                <div class="social-links">
-                    <a href="https://www.linkedin.com/in/heerthana-udayakumar?utm_source=share_via&utm_content=profile&utm_medium=member_android" class="social-btn" target="_blank" rel="noopener noreferrer">
-                        <i class="fab fa-linkedin"></i>
-                    </a>
-                    <a href="https://github.com/Heerthana23" class="social-btn" target="_blank" rel="noopener noreferrer">
-                        <i class="fab fa-github"></i>
-                    </a>
-                    <a href="https://www.instagram.com/the._.mini._.on_23?igsh=MTN3M3pvcXJ0MnFpOA==" class="social-btn" target="_blank" rel="noopener noreferrer">
-                        <i class="fab fa-instagram"></i>
-                    </a>
+                <div class="projects-grid">
+                    <article class="card project reveal" data-tilt style="--hue:262">
+                        <span class="project-num">01</span>
+                        <div class="depth">
+                            <h3>Spendify</h3>
+                            <p class="project-sub">Automated Expense Management System &middot; Frontend / DevOps</p>
+                            <p class="note">Contributed as a Frontend Developer to a team-based expense management app: login functionality, form validation, and API integration. Used Docker to containerize the application and Git/GitHub branching for team workflows.</p>
+                            <div class="chips"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>APIs</span><span>Git</span><span>Docker</span></div>
+                            <a href="https://github.com/Rashadha24/spendify-devops-project" class="project-link" target="_blank" rel="noopener noreferrer">View repository <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </article>
+                    <article class="card project reveal" data-tilt style="--hue:338">
+                        <span class="project-num">02</span>
+                        <div class="depth">
+                            <h3>SafeRide LK</h3>
+                            <p class="project-sub">Mobile App Prototype &middot; UI/UX Design</p>
+                            <p class="note">Designed a prototype focused on safer transportation, with interactive navigation, login, dashboard, route logging, and incident-related interface concepts, applying UI/UX principles for intuitive flows.</p>
+                            <div class="chips"><span>Figma</span><span>UI/UX</span><span>Prototyping</span></div>
+                            <a href="https://www.figma.com/proto/ZsIS2J4q74nhOFGwIAj3f3/Saferider-LK-01" class="project-link" target="_blank" rel="noopener noreferrer">View prototype <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </article>
+                    <article class="card project reveal" data-tilt style="--hue:190">
+                        <span class="project-num">03</span>
+                        <div class="depth">
+                            <h3>Explore Sri Lanka</h3>
+                            <p class="project-sub">Tourism Website &middot; Frontend Development</p>
+                            <p class="note">Designed and developed a responsive tourism website showcasing destinations across Sri Lanka, with components for destination listings, food, and cultural attractions.</p>
+                            <div class="chips"><span>JavaScript</span><span>HTML</span><span>CSS</span><span>Responsive</span></div>
+                            <a href="https://github.com/Heerthana23/my-project" class="project-link" target="_blank" rel="noopener noreferrer">View project <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </article>
+                    <article class="card project reveal" data-tilt style="--hue:35">
+                        <span class="project-num">04</span>
+                        <div class="depth">
+                            <h3>PVR App Prototype</h3>
+                            <p class="project-sub">Movie ticket booking app &middot; UI/UX Design</p>
+                            <p class="note">Created a Figma prototype with interactive screens and mapped user journeys for the booking experience, focusing on navigation, interface consistency, and user-friendly layouts.</p>
+                            <div class="chips"><span>Figma</span><span>User journeys</span><span>UI/UX</span></div>
+                            <a href="https://www.figma.com/proto/EVUVQVmbu93oXNdcIiOxt8/PVR?node-id=17-187&p=f" class="project-link" target="_blank" rel="noopener noreferrer">View prototype <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </article>
+                    <article class="card project reveal" data-tilt style="--hue:150">
+                        <span class="project-num">05</span>
+                        <div class="depth">
+                            <h3>Bank Customer Management System</h3>
+                            <p class="project-sub">Console application &middot; Object-Oriented Programming</p>
+                            <p class="note">Built a console-based banking app using encapsulation, inheritance, polymorphism, and abstraction. Classes cover customer accounts, deposits, withdrawals, balance inquiries, and transactions, with input validation and exception handling for reliability.</p>
+                            <div class="chips"><span>OOP</span><span>Encapsulation</span><span>Inheritance</span><span>Polymorphism</span><span>Abstraction</span></div>
+                        </div>
+                    </article>
+                    <article class="card project reveal" data-tilt style="--hue:215">
+                        <span class="project-num">06</span>
+                        <div class="depth">
+                            <h3>RainShield</h3>
+                            <p class="project-sub">IoT-Based Smart System &middot; IoT Mini Project</p>
+                            <p class="note">Worked on an IoT mini project using Arduino, Bluetooth communication, sensors, and a servo motor, exploring sensor-based monitoring and hardware interaction for automated system responses.</p>
+                            <div class="chips"><span>Arduino</span><span>Bluetooth</span><span>Sensors</span><span>Servo motor</span></div>
+                        </div>
+                    </article>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Footer -->
+        <!-- Journey -->
+        <section id="journey" class="section">
+            <div class="container">
+                <div class="section-header reveal">
+                    <span class="section-index">04</span>
+                    <h2>Journey</h2>
+                </div>
+
+                <div class="journey-grid">
+                    <div class="journey-col">
+                        <h3 class="col-title reveal">Education</h3>
+                        <div class="timeline">
+                            <div class="t-item reveal">
+                                <span class="t-date">Nov 2023 &ndash; Mar 2028</span>
+                                <h4>Horizon Campus</h4>
+                                <p class="t-role">Bachelor of Information Technology (Hons) in Networking and Mobile Computing &middot; Malabe, Sri Lanka</p>
+                                <div class="chips"><span>Data Structures</span><span>Algorithms</span><span>Databases</span><span>Computer Systems</span><span>Machine Learning</span></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="journey-col">
+                        <h3 class="col-title reveal">Leadership &amp; Activities</h3>
+                        <div class="timeline">
+                            <div class="t-item reveal">
+                                <span class="t-date">2026</span>
+                                <h4>Designathon / Codefest</h4>
+                                <p class="t-role">UI/UX Design Participant &middot; Horizon Campus</p>
+                                <p>Took part in a time-constrained UI/UX design challenge, collaborating with teammates to build user interfaces, create interactive prototypes, and present design concepts in Figma.</p>
+                            </div>
+                            <div class="t-item reveal">
+                                <span class="t-date">2026</span>
+                                <h4>AIESEC &ndash; Horizon Campus</h4>
+                                <p class="t-role">Member</p>
+                                <p>Participated in team-based organizational activities and student initiatives, developing communication, collaboration, teamwork, and organizational skills.</p>
+                            </div>
+                            <div class="t-item reveal">
+                                <span class="t-date">2024 &ndash; 2025</span>
+                                <h4>Horizon Campus First Aid Club</h4>
+                                <p class="t-role">Editor</p>
+                                <p>Supported club activities and organizational tasks through the Editor role.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact -->
+        <section id="contact" class="section contact">
+            <div class="container">
+                <div class="section-header reveal">
+                    <span class="section-index">05</span>
+                    <h2>Contact</h2>
+                </div>
+
+                <p class="contact-lead reveal"> Have an idea or an opportunity? Let&rsquo;s talk.</p>
+                <a href="mailto:kidhurshana@gmail.com" class="mail-link reveal">kidhurshana@gmail.com</a>
+
+                <div class="contact-row">
+                    <div class="contact-item reveal">
+                        <span>Phone</span>
+                        <a href="tel:+94752918086">075 291 8086</a>
+                    </div>
+                    <div class="contact-item reveal">
+                        <span>Location</span>
+                        <p>Malabe, Sri Lanka</p>
+                    </div>
+                    <div class="social-links reveal">
+                        <a href="https://www.linkedin.com/in/heerthana-udayakumar?utm_source=share_via&utm_content=profile&utm_medium=member_android" class="social-btn magnetic" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://github.com/Heerthana23" class="social-btn magnetic" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="https://www.instagram.com/the._.mini._.on_23?igsh=MTN3M3pvcXJ0MnFpOA==" class="social-btn magnetic" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
     <footer class="footer">
         <div class="container">
-            <p>🌌 End transmission. Safe travels through the digital cosmos.</p>
-            <p>© 2026 Space Dev Portfolio | Designed by an Interstellar Developer</p>
+            <p>&copy; 2026 Heerthana. All rights reserved.</p>
+            <a href="#home">Back to top &uarr;</a>
         </div>
     </footer>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="script.js"></script>
-    <script src="canvas.js"></script>
 </body>
 </html>
